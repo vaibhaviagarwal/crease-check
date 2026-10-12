@@ -1,0 +1,31 @@
+name: tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: crease
+          POSTGRES_PASSWORD: crease
+          POSTGRES_DB: crease
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U crease"
+          --health-interval 2s
+          --health-retries 20
+    env:
+      DATABASE_URL: postgresql://crease:crease@localhost:5432/crease
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - run: python -m pytest
+      - name: Vision benchmark (quick)
+        run: python bench/vision_benchmark.py --quick

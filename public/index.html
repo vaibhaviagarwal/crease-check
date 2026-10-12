@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crease Check</title>
+  <meta name="description" content="Will your origami crease pattern fold flat? Upload a file or a photo of a marker drawing.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23F1EEE8'/%3E%3Cpath d='M5 27L27 5M5 5l22 22' stroke='%233F4F7A' stroke-width='2.5' stroke-dasharray='4 3'/%3E%3Cpath d='M16 4v24' stroke='%23A64B3C' stroke-width='2.5'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ephesis&family=Jost:wght@200;300;400;500&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="page">
+  <svg class="lake" aria-hidden="true" viewBox="0 0 1440 640" preserveAspectRatio="none">
+    <path d="M0 40 C 180 10, 340 70, 520 42 S 860 8, 1040 40 S 1300 72, 1440 36 L1440 640 L0 640 Z" fill="#ECE7DE"/>
+    <path d="M0 100 C 200 72, 360 128, 560 98 S 900 70, 1080 104 S 1320 130, 1440 96 L1440 640 L0 640 Z" fill="#E8E2D7"/>
+    <path d="M0 160 C 160 190, 380 128, 600 160 S 940 196, 1120 158 S 1340 130, 1440 164 L1440 640 L0 640 Z" fill="#EDE8DF"/>
+    <path d="M0 226 C 220 196, 420 258, 640 222 S 980 192, 1160 228 S 1360 256, 1440 220 L1440 640 L0 640 Z" fill="#E6E0D4"/>
+    <path d="M0 290 C 180 322, 400 262, 620 292 S 960 326, 1150 288 S 1350 262, 1440 296 L1440 640 L0 640 Z" fill="#ECE6DC"/>
+    <path d="M0 356 C 240 326, 440 390, 680 352 S 1000 322, 1200 360 S 1380 386, 1440 350 L1440 640 L0 640 Z" fill="#E4DDD1"/>
+    <path d="M0 422 C 200 452, 420 392, 660 424 S 1000 456, 1190 418 S 1370 394, 1440 428 L1440 640 L0 640 Z" fill="#EAE4D9"/>
+    <path d="M0 488 C 260 458, 460 520, 700 484 S 1020 454, 1220 492 S 1390 516, 1440 482 L1440 640 L0 640 Z" fill="#E2DBCE"/>
+    <path d="M0 552 C 220 580, 440 524, 680 554 S 1020 584, 1210 548 S 1380 526, 1440 556 L1440 640 L0 640 Z" fill="#E8E1D6"/>
+  </svg>
+
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="/">Crease Check</a>
+      <div class="links">
+        <a href="#how">How it works</a>
+        <a href="/docs">API</a>
+        <a href="https://github.com/vaibhaviagarwal/crease-check">GitHub</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="title">
+        <h1>Crease</h1>
+        <span class="script" aria-hidden="true">check</span>
+      </div>
+      <p class="tagline">Will your pattern fold flat?</p>
+    </header>
+
+    <section class="card" aria-label="Pattern workspace">
+      <figure class="sheet-wrap">
+        <div class="sheet" id="sheet">
+          <img id="photo" class="photo" alt="Your photo, straightened" hidden>
+          <svg id="canvas" viewBox="0 0 400 400" role="img" aria-label="Crease pattern"></svg>
+          <div id="busy" class="busy" hidden><span></span></div>
+        </div>
+        <figcaption class="legend">
+          <span><svg aria-hidden="true" width="34" height="6"><line x1="1" y1="3" x2="33" y2="3" class="ln-m"/></svg>Mountain</span>
+          <span><svg aria-hidden="true" width="34" height="6"><line x1="1" y1="3" x2="33" y2="3" class="ln-v"/></svg>Valley</span>
+          <span><svg aria-hidden="true" width="14" height="14"><circle cx="7" cy="7" r="5.5" class="ring"/></svg>Won't fold</span>
+        </figcaption>
+      </figure>
+
+      <div class="controls">
+        <div class="group">
+          <h2>Bring a pattern</h2>
+          <button type="button" class="btn dark" id="pick-photo">
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>
+            Upload a photo
+          </button>
+          <button type="button" class="btn" id="pick-file">
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/></svg>
+            Upload a .fold or .cp file
+          </button>
+          <input type="file" id="photo-input" accept="image/*" hidden>
+          <input type="file" id="file-input" accept=".fold,.cp,.json" hidden>
+          <p class="hint">Photos: draw mountains in red marker and valleys in blue on a square of light paper. Shoot from above.</p>
+        </div>
+
+        <div class="group">
+          <h2>Or try one</h2>
+          <div class="chips" id="examples"></div>
+        </div>
+
+        <div class="group">
+          <h2>Options</h2>
+          <label class="check"><input type="checkbox" id="opt-snap" checked> Snap photo angles to 22.5°</label>
+          <label class="check"><input type="checkbox" id="opt-fixes" checked> Suggest fixes</label>
+        </div>
+      </div>
+    </section>
+
+    <section class="result" aria-live="polite">
+      <div class="verdict-row">
+        <h2 id="verdict" class="verdict">&nbsp;</h2>
+        <p id="meta" class="meta"></p>
+      </div>
+      <p id="error" class="error" hidden></p>
+      <p id="note" class="note" hidden></p>
+      <ol id="issues" class="issues"></ol>
+      <details class="api">
+        <summary>API response</summary>
+        <pre id="json"></pre>
+      </details>
+    </section>
+
+    <section id="how" class="how">
+      <h2>How it works</h2>
+      <div class="rules">
+        <div>
+          <h3>Maekawa</h3>
+          <p>Where creases meet, the number of mountain folds and valley folds always differs by exactly two.</p>
+        </div>
+        <div>
+          <h3>Kawasaki</h3>
+          <p>Going round that point, every other angle adds up to 180°, so the paper lands back on itself.</p>
+        </div>
+        <div>
+          <h3>Big-little-big</h3>
+          <p>A wedge smaller than both its neighbours must sit between one mountain and one valley.</p>
+        </div>
+      </div>
+      <p class="fine">Each point is then tested exactly by folding its smallest wedges away one at a time (crimping). That proves every point folds flat on its own. Whether the whole sheet does is NP-hard to decide in general, so the result covers every point, not every possible collision between distant flaps.</p>
+    </section>
+
+    <footer class="foot">Maekawa · Kawasaki · Big-little-big</footer>
+  </div>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>

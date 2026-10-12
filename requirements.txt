@@ -1,0 +1,6 @@
+# What the API needs to run (also what Vercel installs).
+fastapi==0.143.0
+python-multipart>=0.0.9
+numpy==2.5.3
+opencv-python-headless==5.0.0.93
+psycopg[binary]==3.3.6

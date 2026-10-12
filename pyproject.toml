@@ -1,0 +1,11 @@
+[project]
+name = "crease-check"
+version = "0.1.0"
+description = "Will your origami crease pattern fold flat? A geometry engine, photo reader and API."
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "tests"]
+addopts = "-q"
+markers = ["db: needs a PostgreSQL database (DATABASE_URL)"]
