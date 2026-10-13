@@ -109,3 +109,31 @@ def render_photo(pattern: Pattern, seed: int, level: str = "normal") -> bytes:
     photo = np.clip(photo + nrng.normal(0, noise, photo.shape), 0, 255).astype(np.uint8)
     ok, buf = cv2.imencode(".jpg", photo, [cv2.IMWRITE_JPEG_QUALITY, rng.randint(jpeg_lo, 92)])
     return buf.tobytes()
+
+
+def render_digital(pattern: Pattern, seed: int = 0, size: int = 900, grid: int | None = 16) -> bytes:
+    """A screenshot-style image of a pattern, as design software draws it:
+    thin anti-aliased red and blue lines on white, a faint grey grid, and
+    a dark frame a few pixels inside the image."""
+    rng = random.Random(seed)
+    p = normalize(pattern)
+    pad = 6
+    img = np.full((size, size, 3), 255, np.uint8)
+    inner = size - 2 * pad
+    if grid:
+        for k in range(grid + 1):
+            v = pad + round(k * inner / grid)
+            cv2.line(img, (v, pad), (v, size - pad), (232, 232, 232), 1)
+            cv2.line(img, (pad, v), (size - pad, v), (232, 232, 232), 1)
+    cv2.rectangle(img, (pad, pad), (size - pad, size - pad), (40, 40, 40), 2)
+    thick = rng.choice((2, 2, 3))
+    for (x1, y1), (x2, y2), kind in p.segments():
+        if kind not in ("M", "V"):
+            continue
+        color = (90, 90, 255) if kind == "M" else (255, 100, 100)    # BGR: pink-red, light blue
+        a = (pad + x1 * inner, pad + (1 - y1) * inner)
+        b = (pad + x2 * inner, pad + (1 - y2) * inner)
+        cv2.line(img, (round(a[0] * 16), round(a[1] * 16)), (round(b[0] * 16), round(b[1] * 16)),
+                 color, thick, cv2.LINE_AA, shift=4)
+    ok, buf = cv2.imencode(".png", img)
+    return buf.tobytes()

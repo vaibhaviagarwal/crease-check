@@ -66,3 +66,40 @@ def test_benchmark_quick_run():
     s = summarise(run(1, 2, 1000, ("easy",)))["easy"]
     assert s["recall"] > 0.97 and s["precision"] > 0.97
     assert s["verdict"] >= 0.8
+
+
+# --- screenshots / exports from design software ------------------------------
+
+def _grid_miura():
+    from crease.examples import miura_ori
+    # 45-degree zigzags on a 16 x 16 grid: every vertex is a grid point.
+    return miura_ori(8, 16, lean=1 / 16)
+
+
+@pytest.mark.parametrize("seed", [0, 1])
+def test_digital_grid_pattern_is_read_exactly(seed):
+    from crease.synth import render_digital
+    pattern = _grid_miura()
+    truth = check(pattern)
+    assert truth.flat_foldable
+    res = read_photo(render_digital(pattern, seed, grid=16))
+    got = check(res.pattern, angle_tol=1.0)
+    assert res.stats["kind"] == "digital crease pattern"
+    assert res.stats["grid"] == 16 and res.stats["method"] == "grid"
+    assert got.flat_foldable
+    assert got.creases == truth.creases and got.vertices_checked == truth.vertices_checked
+
+
+def test_digital_off_grid_pattern_uses_line_finding():
+    from crease.synth import render_digital
+    pattern = EXAMPLES["broken-twist"][1]()
+    res = read_photo(render_digital(pattern, 3, grid=None))
+    got = check(res.pattern, angle_tol=1.0)
+    assert res.stats["kind"] == "digital crease pattern"
+    assert res.stats["method"] == "lines"
+    assert len(got.failing_vertices) == 2
+
+
+def test_marker_photos_still_use_the_marker_profile():
+    res = read_photo(render_photo(EXAMPLES["waterbomb"][1](), 1001, "easy"))
+    assert res.stats["kind"] == "photo of a drawing"

@@ -70,6 +70,30 @@ file / photo ─► segments ─► planar graph ─► per-vertex rules ─► 
 | Make creases meet | Ends move to junctions within reach, and dangling ends extend forward to the next line |
 | Solve junctions | Union-find clusters crossings, then rounds of least-squares vertex placement and sideways line shifts make the drawing consistent |
 
+### Screenshots and exports from design software
+
+Thin, exact lines on a dense grid need different handling from marker
+strokes, so the reader first measures stroke width. On an 800-px sheet,
+software lines are about 3-5 px and marker strokes 9-12 px. Thin lines
+switch it to a digital profile:
+
+- straighten at 1600 px, skip speck removal (it erases thin lines), accept
+  paler anti-aliased colour, and tighten every distance tolerance;
+- use the outer extent of the creases as the paper's edge, since software
+  draws a frame just inside the image;
+- **detect the design grid.** Most designed patterns, box pleating
+  especially, put every vertex on an N × N grid. The smallest N that
+  nearly every line end sits on is the grid. Then each half-step between
+  neighbouring grid points, horizontal, vertical and diagonal, is tested
+  directly for red, blue or no ink. That reads the geometry exactly rather
+  than estimating it. It's used only when those steps account for at
+  least 97% of the ink, so patterns with creases off the grid keep the
+  line-finding result.
+
+On a 32 × 32 box-pleated pattern, an 856-crease screenshot, this reads
+386 vertices and flags exactly one, which turns out to be a real error in
+the image: four valley folds meet at one point.
+
 ### Measured, not eyeballed
 
 `bench/vision_benchmark.py` draws patterns the way a person would (wobbly

@@ -7,7 +7,7 @@
    "mv_accuracy": 0.9997425972224625,
    "verdict": 0.9666666666666667,
    "exact": 0.9666666666666667,
-   "median_ms": 221.47790849976445
+   "median_ms": 284.58389499996883
   },
   "normal": {
    "photos": 60,
@@ -16,7 +16,7 @@
    "mv_accuracy": 0.9997587661428347,
    "verdict": 0.95,
    "exact": 0.95,
-   "median_ms": 220.43685149947123
+   "median_ms": 281.8237570000406
   },
   "hard": {
    "photos": 60,
@@ -25,7 +25,7 @@
    "mv_accuracy": 0.999532095359121,
    "verdict": 0.8833333333333333,
    "exact": 0.8666666666666667,
-   "median_ms": 215.0569875002475
+   "median_ms": 290.75410450002437
   }
  },
  "rows": [
@@ -38,7 +38,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 578.3326400005535
+   "ms": 630.8389669999315
   },
   {
    "pattern": "broken-twist",
@@ -49,7 +49,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 275.39564600010635
+   "ms": 301.17334400006257
   },
   {
    "pattern": "broken-twist",
@@ -60,7 +60,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 222.47041999980866
+   "ms": 309.11813900002016
   },
   {
    "pattern": "broken-twist",
@@ -71,7 +71,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 231.24165199988056
+   "ms": 325.18943299999137
   },
   {
    "pattern": "broken-twist",
@@ -82,7 +82,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 530.1127630000337
+   "ms": 586.3134909999417
   },
   {
    "pattern": "broken-twist",
@@ -93,7 +93,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 274.42808500018145
+   "ms": 338.57357199997296
   },
   {
    "pattern": "broken-twist",
@@ -104,7 +104,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 280.82420000009733
+   "ms": 345.8193179999398
   },
   {
    "pattern": "broken-twist",
@@ -115,7 +115,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 243.06321000040043
+   "ms": 282.7286170000889
   },
   {
    "pattern": "broken-twist",
@@ -126,7 +126,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": false,
-   "ms": 215.3041760002452
+   "ms": 370.20981900002425
   },
   {
    "pattern": "square-twist",
@@ -137,7 +137,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 189.38547000016115
+   "ms": 291.2087720000045
   },
   {
    "pattern": "square-twist",
@@ -148,7 +148,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 190.19945400032157
+   "ms": 261.8948179999734
   },
   {
    "pattern": "square-twist",
@@ -159,7 +159,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 242.04944600023737
+   "ms": 278.893413999981
   },
   {
    "pattern": "square-twist",
@@ -170,7 +170,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 238.94796399963525
+   "ms": 301.4697020000767
   },
   {
    "pattern": "square-twist",
@@ -181,7 +181,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 256.90397400012444
+   "ms": 309.3193140000494
   },
   {
    "pattern": "square-twist",
@@ -192,7 +192,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 285.1811250002356
+   "ms": 340.5751389999523
   },
   {
    "pattern": "square-twist",
@@ -203,7 +203,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 243.52718699992693
+   "ms": 270.86695499997404
   },
   {
    "pattern": "square-twist",
@@ -214,7 +214,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 303.58088400043926
+   "ms": 427.88907199997084
   },
   {
    "pattern": "square-twist",
@@ -225,7 +225,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 256.08545600061916
+   "ms": 317.79463700002
   },
   {
    "pattern": "waterbomb",
@@ -236,7 +236,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 186.49425200055703
+   "ms": 270.59088700002576
   },
   {
    "pattern": "waterbomb",
@@ -247,7 +247,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 213.03247199921316
+   "ms": 284.5068149999861
   },
   {
    "pattern": "waterbomb",
@@ -258,7 +258,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 212.2417040000073
+   "ms": 271.30123599999934
   },
   {
    "pattern": "waterbomb",
@@ -269,7 +269,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 239.75539799994294
+   "ms": 264.05292200001895
   },
   {
    "pattern": "waterbomb",
@@ -280,7 +280,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 221.3910249993205
+   "ms": 249.75111300000208
   },
   {
    "pattern": "waterbomb",
@@ -291,7 +291,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 222.9740849998052
+   "ms": 268.8920970000481
   },
   {
    "pattern": "waterbomb",
@@ -302,7 +302,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 207.03111199964042
+   "ms": 285.7250480000175
   },
   {
    "pattern": "waterbomb",
@@ -313,7 +313,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 214.83537899985095
+   "ms": 306.5822979999666
   },
   {
    "pattern": "waterbomb",
@@ -324,7 +324,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 196.77569299983588
+   "ms": 246.58619700005602
   },
   {
    "pattern": "miura-ori",
@@ -335,7 +335,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 318.61817499975587
+   "ms": 378.8885339999979
   },
   {
    "pattern": "miura-ori",
@@ -346,7 +346,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 284.20980499959114
+   "ms": 339.2878480000263
   },
   {
    "pattern": "miura-ori",
@@ -357,7 +357,7 @@
    "mv": 0.9975780775678066,
    "verdict": true,
    "exact": true,
-   "ms": 310.5934389996037
+   "ms": 362.55055200001607
   },
   {
    "pattern": "miura-ori",
@@ -368,7 +368,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 304.8612740003591
+   "ms": 457.5722260000248
   },
   {
    "pattern": "miura-ori",
@@ -379,7 +379,7 @@
    "mv": 0.9990332804012967,
    "verdict": false,
    "exact": false,
-   "ms": 330.55396899999323
+   "ms": 386.70473199999833
   },
   {
    "pattern": "miura-ori",
@@ -390,7 +390,7 @@
    "mv": 0.9995149323888367,
    "verdict": true,
    "exact": true,
-   "ms": 323.8334589996157
+   "ms": 363.62844899997526
   },
   {
    "pattern": "miura-ori",
@@ -401,7 +401,7 @@
    "mv": 0.9951527395119899,
    "verdict": false,
    "exact": false,
-   "ms": 372.3043810005038
+   "ms": 511.2886189999699
   },
   {
    "pattern": "miura-ori",
@@ -412,7 +412,7 @@
    "mv": 0.9917522326832438,
    "verdict": false,
    "exact": false,
-   "ms": 365.55324500022834
+   "ms": 488.7159890000703
   },
   {
    "pattern": "miura-ori",
@@ -423,7 +423,7 @@
    "mv": 0.9965960775476305,
    "verdict": false,
    "exact": false,
-   "ms": 355.774958999973
+   "ms": 390.54733299997224
   },
   {
    "pattern": "random-0",
@@ -434,7 +434,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 444.5182029994612
+   "ms": 515.4863669999941
   },
   {
    "pattern": "random-0",
@@ -445,7 +445,7 @@
    "mv": 1.0,
    "verdict": false,
    "exact": false,
-   "ms": 205.59269499972288
+   "ms": 276.9462469999553
   },
   {
    "pattern": "random-0",
@@ -456,7 +456,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 234.0539569995599
+   "ms": 273.0190859999766
   },
   {
    "pattern": "random-0",
@@ -467,7 +467,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 202.47548699990148
+   "ms": 236.5288610000107
   },
   {
    "pattern": "random-0",
@@ -478,7 +478,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 229.41771100067854
+   "ms": 293.9650949999759
   },
   {
    "pattern": "random-0",
@@ -489,7 +489,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 246.78063500050484
+   "ms": 278.9801010000019
   },
   {
    "pattern": "random-0",
@@ -500,7 +500,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 242.16765700020915
+   "ms": 352.18499299992345
   },
   {
    "pattern": "random-0",
@@ -511,7 +511,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 323.58669499990356
+   "ms": 339.7519250000869
   },
   {
    "pattern": "random-0",
@@ -522,7 +522,7 @@
    "mv": 1.0,
    "verdict": false,
    "exact": false,
-   "ms": 232.3626300003525
+   "ms": 341.03010799992717
   },
   {
    "pattern": "random-1",
@@ -533,7 +533,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 205.80504099962127
+   "ms": 335.20660399994995
   },
   {
    "pattern": "random-1",
@@ -544,7 +544,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 218.00344199982646
+   "ms": 282.1357770000077
   },
   {
    "pattern": "random-1",
@@ -555,7 +555,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 266.42385100058164
+   "ms": 276.2880770000038
   },
   {
    "pattern": "random-1",
@@ -566,7 +566,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 193.22329999977228
+   "ms": 257.7257330000293
   },
   {
    "pattern": "random-1",
@@ -577,7 +577,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 195.45934400048282
+   "ms": 245.51649700003964
   },
   {
    "pattern": "random-1",
@@ -588,7 +588,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 190.22942900028283
+   "ms": 242.0292709999785
   },
   {
    "pattern": "random-1",
@@ -599,7 +599,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 194.41264600027353
+   "ms": 278.51517599992803
   },
   {
    "pattern": "random-1",
@@ -610,7 +610,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 184.5558359991628
+   "ms": 250.53040700004203
   },
   {
    "pattern": "random-1",
@@ -621,7 +621,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 178.28365700006543
+   "ms": 269.61353699994106
   },
   {
    "pattern": "random-2",
@@ -632,7 +632,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 197.23611399967922
+   "ms": 275.47351999999137
   },
   {
    "pattern": "random-2",
@@ -643,7 +643,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 212.00297700033843
+   "ms": 279.04559500007053
   },
   {
    "pattern": "random-2",
@@ -654,7 +654,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 201.11998700031108
+   "ms": 246.65669099999832
   },
   {
    "pattern": "random-2",
@@ -665,7 +665,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 183.27366300036374
+   "ms": 235.4986689999805
   },
   {
    "pattern": "random-2",
@@ -676,7 +676,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 188.43080199985707
+   "ms": 229.80022400008693
   },
   {
    "pattern": "random-2",
@@ -687,7 +687,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 189.7745490005036
+   "ms": 258.0494210000097
   },
   {
    "pattern": "random-2",
@@ -698,7 +698,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 158.88829399955284
+   "ms": 259.99138099996344
   },
   {
    "pattern": "random-2",
@@ -709,7 +709,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 212.3937289998139
+   "ms": 335.26476500003355
   },
   {
    "pattern": "random-2",
@@ -720,7 +720,7 @@
    "mv": 1.0,
    "verdict": false,
    "exact": false,
-   "ms": 196.99126300019998
+   "ms": 241.75643000000946
   },
   {
    "pattern": "random-3",
@@ -731,7 +731,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 310.0615769999422
+   "ms": 315.21821999990607
   },
   {
    "pattern": "random-3",
@@ -742,7 +742,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 239.7561139996469
+   "ms": 240.81652300003498
   },
   {
    "pattern": "random-3",
@@ -753,7 +753,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 190.70833300065715
+   "ms": 267.0713940000269
   },
   {
    "pattern": "random-3",
@@ -764,7 +764,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 195.4721749998498
+   "ms": 242.89438299990707
   },
   {
    "pattern": "random-3",
@@ -775,7 +775,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 200.41175299957104
+   "ms": 223.93692100001772
   },
   {
    "pattern": "random-3",
@@ -786,7 +786,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 448.94495399967127
+   "ms": 435.95600499998
   },
   {
    "pattern": "random-3",
@@ -797,7 +797,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 187.95364099969447
+   "ms": 254.5006390000708
   },
   {
    "pattern": "random-3",
@@ -808,7 +808,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 188.94720099979168
+   "ms": 296.6713600000048
   },
   {
    "pattern": "random-3",
@@ -819,7 +819,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 205.6448539997291
+   "ms": 278.4898899999462
   },
   {
    "pattern": "random-4",
@@ -830,7 +830,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 224.68554500028404
+   "ms": 270.0935580000987
   },
   {
    "pattern": "random-4",
@@ -841,7 +841,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 235.83638899981452
+   "ms": 285.7392030000483
   },
   {
    "pattern": "random-4",
@@ -852,7 +852,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 206.84181999968132
+   "ms": 293.55849099999887
   },
   {
    "pattern": "random-4",
@@ -863,7 +863,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 212.50276799946732
+   "ms": 249.24828600001092
   },
   {
    "pattern": "random-4",
@@ -874,7 +874,7 @@
    "mv": 1.0,
    "verdict": false,
    "exact": false,
-   "ms": 228.97742300028767
+   "ms": 253.1513049999603
   },
   {
    "pattern": "random-4",
@@ -885,7 +885,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 236.23279000003095
+   "ms": 318.6778750000485
   },
   {
    "pattern": "random-4",
@@ -896,7 +896,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 206.47215400003915
+   "ms": 273.561868999991
   },
   {
    "pattern": "random-4",
@@ -907,7 +907,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 205.92777100046078
+   "ms": 243.50458000003528
   },
   {
    "pattern": "random-4",
@@ -918,7 +918,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 204.52767799997673
+   "ms": 250.86819800003468
   },
   {
    "pattern": "random-5",
@@ -929,7 +929,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 587.4676199991882
+   "ms": 673.4197160000122
   },
   {
    "pattern": "random-5",
@@ -940,7 +940,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 245.73837400021148
+   "ms": 375.6953089999797
   },
   {
    "pattern": "random-5",
@@ -951,7 +951,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 216.9282570002906
+   "ms": 317.0338869999796
   },
   {
    "pattern": "random-5",
@@ -962,7 +962,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 254.19804099965404
+   "ms": 359.5074059999206
   },
   {
    "pattern": "random-5",
@@ -973,7 +973,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 225.0484989999677
+   "ms": 353.2037070000342
   },
   {
    "pattern": "random-5",
@@ -984,7 +984,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 210.40521500071918
+   "ms": 305.53259099997376
   },
   {
    "pattern": "random-5",
@@ -995,7 +995,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 247.27083400011907
+   "ms": 321.2120279999908
   },
   {
    "pattern": "random-5",
@@ -1006,7 +1006,7 @@
    "mv": 1.0,
    "verdict": false,
    "exact": false,
-   "ms": 211.05711900054303
+   "ms": 253.1195020000041
   },
   {
    "pattern": "random-5",
@@ -1017,7 +1017,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 276.97847499985073
+   "ms": 345.1581699999906
   },
   {
    "pattern": "random-6",
@@ -1028,7 +1028,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 206.86102700074116
+   "ms": 250.50208300001486
   },
   {
    "pattern": "random-6",
@@ -1039,7 +1039,7 @@
    "mv": 1.0,
    "verdict": false,
    "exact": false,
-   "ms": 232.61172900038218
+   "ms": 285.9488640000336
   },
   {
    "pattern": "random-6",
@@ -1050,7 +1050,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 207.60143600000447
+   "ms": 285.93203899993114
   },
   {
    "pattern": "random-6",
@@ -1061,7 +1061,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 191.86853100018197
+   "ms": 256.8150639999658
   },
   {
    "pattern": "random-6",
@@ -1072,7 +1072,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 200.92149799984327
+   "ms": 281.83390499998495
   },
   {
    "pattern": "random-6",
@@ -1083,7 +1083,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 205.85893200041028
+   "ms": 273.01598299993657
   },
   {
    "pattern": "random-6",
@@ -1094,7 +1094,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 199.37657799982844
+   "ms": 284.15934299994206
   },
   {
    "pattern": "random-6",
@@ -1105,7 +1105,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 227.06003099938243
+   "ms": 296.03665199999796
   },
   {
    "pattern": "random-6",
@@ -1116,7 +1116,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 217.70801000002393
+   "ms": 312.9778659999829
   },
   {
    "pattern": "random-7",
@@ -1127,7 +1127,7 @@
    "mv": 0.9956592519266488,
    "verdict": true,
    "exact": true,
-   "ms": 200.25103999978455
+   "ms": 253.60302199999296
   },
   {
    "pattern": "random-7",
@@ -1138,7 +1138,7 @@
    "mv": 0.9956592519266488,
    "verdict": true,
    "exact": true,
-   "ms": 184.55930300024193
+   "ms": 235.2961139999934
   },
   {
    "pattern": "random-7",
@@ -1149,7 +1149,7 @@
    "mv": 0.9956592519266488,
    "verdict": true,
    "exact": true,
-   "ms": 248.75617799989413
+   "ms": 292.38264200000685
   },
   {
    "pattern": "random-7",
@@ -1160,7 +1160,7 @@
    "mv": 0.9956592519266488,
    "verdict": true,
    "exact": true,
-   "ms": 239.02103799991892
+   "ms": 288.50915699990765
   },
   {
    "pattern": "random-7",
@@ -1171,7 +1171,7 @@
    "mv": 0.9956592519266488,
    "verdict": true,
    "exact": true,
-   "ms": 214.97042900045926
+   "ms": 281.8136090000962
   },
   {
    "pattern": "random-7",
@@ -1182,7 +1182,7 @@
    "mv": 0.9956592519266488,
    "verdict": true,
    "exact": true,
-   "ms": 266.175433999706
+   "ms": 299.8816289999695
   },
   {
    "pattern": "random-7",
@@ -1193,7 +1193,7 @@
    "mv": 0.9956592519266488,
    "verdict": true,
    "exact": true,
-   "ms": 231.23052500068297
+   "ms": 292.34261200008405
   },
   {
    "pattern": "random-7",
@@ -1204,7 +1204,7 @@
    "mv": 0.9971061679510992,
    "verdict": true,
    "exact": true,
-   "ms": 200.65199700002267
+   "ms": 330.1152209999145
   },
   {
    "pattern": "random-7",
@@ -1215,7 +1215,7 @@
    "mv": 0.9956592519266488,
    "verdict": true,
    "exact": true,
-   "ms": 249.47970299945155
+   "ms": 314.21574000000874
   },
   {
    "pattern": "random-8",
@@ -1226,7 +1226,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 191.6293599997516
+   "ms": 284.91338100002395
   },
   {
    "pattern": "random-8",
@@ -1237,7 +1237,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 187.7589519999674
+   "ms": 284.6609749999516
   },
   {
    "pattern": "random-8",
@@ -1248,7 +1248,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 162.11915199983196
+   "ms": 253.77556600005846
   },
   {
    "pattern": "random-8",
@@ -1259,7 +1259,7 @@
    "mv": 1.0,
    "verdict": false,
    "exact": false,
-   "ms": 181.51134500021726
+   "ms": 285.1381589999846
   },
   {
    "pattern": "random-8",
@@ -1270,7 +1270,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 215.02553199934482
+   "ms": 249.69555999996373
   },
   {
    "pattern": "random-8",
@@ -1281,7 +1281,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 236.23584599954484
+   "ms": 263.19063999994796
   },
   {
    "pattern": "random-8",
@@ -1292,7 +1292,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 209.12375900024927
+   "ms": 242.17341799999303
   },
   {
    "pattern": "random-8",
@@ -1303,7 +1303,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 182.4657950000983
+   "ms": 244.81664500001443
   },
   {
    "pattern": "random-8",
@@ -1314,7 +1314,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 196.5333729995109
+   "ms": 269.3238269999938
   },
   {
    "pattern": "random-9",
@@ -1325,7 +1325,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 235.520672000348
+   "ms": 285.241563999989
   },
   {
    "pattern": "random-9",
@@ -1336,7 +1336,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 218.35214000020642
+   "ms": 331.3893659999394
   },
   {
    "pattern": "random-9",
@@ -1347,7 +1347,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 191.01170000067214
+   "ms": 232.84178000005795
   },
   {
    "pattern": "random-9",
@@ -1358,7 +1358,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 211.22074199956842
+   "ms": 262.61800499992205
   },
   {
    "pattern": "random-9",
@@ -1369,7 +1369,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 197.64494899936835
+   "ms": 230.62361099994177
   },
   {
    "pattern": "random-9",
@@ -1380,7 +1380,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 211.6631890003191
+   "ms": 268.79091299997526
   },
   {
    "pattern": "random-9",
@@ -1391,7 +1391,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 212.18218400008482
+   "ms": 278.9424349999763
   },
   {
    "pattern": "random-9",
@@ -1402,7 +1402,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 215.27859600064403
+   "ms": 249.0224660000422
   },
   {
    "pattern": "random-9",
@@ -1413,7 +1413,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 209.3693839997286
+   "ms": 260.64368200002264
   },
   {
    "pattern": "random-10",
@@ -1424,7 +1424,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 254.45548900006543
+   "ms": 293.2046010000704
   },
   {
    "pattern": "random-10",
@@ -1435,7 +1435,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 226.88393799944606
+   "ms": 286.23507800000425
   },
   {
    "pattern": "random-10",
@@ -1446,7 +1446,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 230.02849699969374
+   "ms": 294.15470200001437
   },
   {
    "pattern": "random-10",
@@ -1457,7 +1457,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 217.85728500071855
+   "ms": 303.3023880000201
   },
   {
    "pattern": "random-10",
@@ -1468,7 +1468,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 211.2286169995059
+   "ms": 302.86203600007866
   },
   {
    "pattern": "random-10",
@@ -1479,7 +1479,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 216.8407359995399
+   "ms": 310.9592130000465
   },
   {
    "pattern": "random-10",
@@ -1490,7 +1490,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 255.38242699985858
+   "ms": 321.0675510000556
   },
   {
    "pattern": "random-10",
@@ -1501,7 +1501,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 254.2382000001453
+   "ms": 402.3095069999272
   },
   {
    "pattern": "random-10",
@@ -1512,7 +1512,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 208.78606800033594
+   "ms": 300.4917599999999
   },
   {
    "pattern": "random-11",
@@ -1523,7 +1523,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 240.8812969997598
+   "ms": 277.0678979999275
   },
   {
    "pattern": "random-11",
@@ -1534,7 +1534,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 227.93428899967694
+   "ms": 341.3145680000298
   },
   {
    "pattern": "random-11",
@@ -1545,7 +1545,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 687.566761999733
+   "ms": 852.1568219999835
   },
   {
    "pattern": "random-11",
@@ -1556,7 +1556,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 282.45148899986816
+   "ms": 355.4942480000136
   },
   {
    "pattern": "random-11",
@@ -1567,7 +1567,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 237.93084599947179
+   "ms": 257.3032500000636
   },
   {
    "pattern": "random-11",
@@ -1578,7 +1578,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 251.83119099983742
+   "ms": 289.4204560000162
   },
   {
    "pattern": "random-11",
@@ -1589,7 +1589,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 251.06682699970406
+   "ms": 323.43223099996976
   },
   {
    "pattern": "random-11",
@@ -1600,7 +1600,7 @@
    "mv": 1.0,
    "verdict": false,
    "exact": false,
-   "ms": 208.4938449997935
+   "ms": 310.6996309999204
   },
   {
    "pattern": "random-11",
@@ -1611,7 +1611,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 211.93293899978016
+   "ms": 280.0294569999551
   },
   {
    "pattern": "random-12",
@@ -1622,7 +1622,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 242.5727600002574
+   "ms": 270.57533999993666
   },
   {
    "pattern": "random-12",
@@ -1633,7 +1633,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 231.86114800046198
+   "ms": 264.3540460001077
   },
   {
    "pattern": "random-12",
@@ -1644,7 +1644,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 280.5211539998709
+   "ms": 297.44558799995957
   },
   {
    "pattern": "random-12",
@@ -1655,7 +1655,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 232.49980800028425
+   "ms": 293.6753059999546
   },
   {
    "pattern": "random-12",
@@ -1666,7 +1666,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 288.7896010006443
+   "ms": 351.26173999992716
   },
   {
    "pattern": "random-12",
@@ -1677,7 +1677,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 257.5758480006698
+   "ms": 324.7347689999742
   },
   {
    "pattern": "random-12",
@@ -1688,7 +1688,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 260.67128100021364
+   "ms": 345.6114969999362
   },
   {
    "pattern": "random-12",
@@ -1699,7 +1699,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 230.74536000058288
+   "ms": 289.1655969999647
   },
   {
    "pattern": "random-12",
@@ -1710,7 +1710,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 242.45794200032833
+   "ms": 329.55170000002454
   },
   {
    "pattern": "random-13",
@@ -1721,7 +1721,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 198.21931600017706
+   "ms": 278.49501100001817
   },
   {
    "pattern": "random-13",
@@ -1732,7 +1732,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 200.08259199948952
+   "ms": 284.11605199994483
   },
   {
    "pattern": "random-13",
@@ -1743,7 +1743,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 250.29698300022574
+   "ms": 268.9697740000838
   },
   {
    "pattern": "random-13",
@@ -1754,7 +1754,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 196.84871600020415
+   "ms": 274.5173189999832
   },
   {
    "pattern": "random-13",
@@ -1765,7 +1765,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 219.20761700039293
+   "ms": 288.88245099994947
   },
   {
    "pattern": "random-13",
@@ -1776,7 +1776,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 252.49079000059282
+   "ms": 290.99791099997674
   },
   {
    "pattern": "random-13",
@@ -1787,7 +1787,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 232.53343699980178
+   "ms": 306.1851720000277
   },
   {
    "pattern": "random-13",
@@ -1798,7 +1798,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 241.44839400014462
+   "ms": 311.20338699997774
   },
   {
    "pattern": "random-13",
@@ -1809,7 +1809,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 323.8361650001025
+   "ms": 377.41561799998635
   },
   {
    "pattern": "random-14",
@@ -1820,7 +1820,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 211.10585599944898
+   "ms": 251.99376900002335
   },
   {
    "pattern": "random-14",
@@ -1831,7 +1831,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 203.47085200046422
+   "ms": 224.2892200000597
   },
   {
    "pattern": "random-14",
@@ -1842,7 +1842,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 220.08742699927097
+   "ms": 289.90576299997883
   },
   {
    "pattern": "random-14",
@@ -1853,7 +1853,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 250.03706799998326
+   "ms": 285.53837000004023
   },
   {
    "pattern": "random-14",
@@ -1864,7 +1864,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 205.72524900035205
+   "ms": 260.5197010000211
   },
   {
    "pattern": "random-14",
@@ -1875,7 +1875,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 197.49495399992156
+   "ms": 264.83860899998035
   },
   {
    "pattern": "random-14",
@@ -1886,7 +1886,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 229.51990800083877
+   "ms": 277.90909300006206
   },
   {
    "pattern": "random-14",
@@ -1897,7 +1897,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 257.8807149993736
+   "ms": 285.3681400000596
   },
   {
    "pattern": "random-14",
@@ -1908,7 +1908,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 206.87797400023555
+   "ms": 268.5040989999834
   },
   {
    "pattern": "random-15",
@@ -1919,7 +1919,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 220.48539699972025
+   "ms": 309.98636300000726
   },
   {
    "pattern": "random-15",
@@ -1930,7 +1930,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 191.77596499957872
+   "ms": 243.4844129999192
   },
   {
    "pattern": "random-15",
@@ -1941,7 +1941,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 260.90697900053783
+   "ms": 242.3135709999542
   },
   {
    "pattern": "random-15",
@@ -1952,7 +1952,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 203.6840900000243
+   "ms": 233.72105799990095
   },
   {
    "pattern": "random-15",
@@ -1963,7 +1963,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 171.19836500023666
+   "ms": 241.19505900000604
   },
   {
    "pattern": "random-15",
@@ -1974,7 +1974,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 219.48267799962196
+   "ms": 241.9575529999065
   },
   {
    "pattern": "random-15",
@@ -1985,7 +1985,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 170.40308299965545
+   "ms": 233.3224199999222
   },
   {
    "pattern": "random-15",
@@ -1996,7 +1996,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 193.39307100017322
+   "ms": 256.1171469999408
   },
   {
    "pattern": "random-15",
@@ -2007,7 +2007,7 @@
    "mv": 1.0,
    "verdict": true,
    "exact": true,
-   "ms": 195.98318099997414
+   "ms": 254.57299700008207
   }
  ]
 }

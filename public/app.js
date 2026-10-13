@@ -121,7 +121,10 @@ function render(body, { fromPhoto = false } = {}) {
   let note = body.flat_foldable ? 'Every point folds flat on its own. See How it works for what that does and does not promise.' : '';
   if (body.photo) {
     const f = body.photo.assessment.found;
-    const read = `From your photo I read ${f.mountain} mountain (red) and ${f.valley} valley (blue) line${f.mountain + f.valley === 1 ? '' : 's'}.`;
+    const kind = body.photo.kind === 'digital crease pattern'
+      ? `Read as a digital crease pattern${body.photo.grid ? ` on a ${body.photo.grid} × ${body.photo.grid} grid` : ''}: `
+      : 'From your photo I read ';
+    const read = `${kind}${f.mountain} mountain (red) and ${f.valley} valley (blue) line${f.mountain + f.valley === 1 ? '' : 's'}.`;
     note = [read, ...body.photo.assessment.notes, note].filter(Boolean).join(' ');
   }
   $('note').hidden = !note;
