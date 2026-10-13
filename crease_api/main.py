@@ -156,9 +156,37 @@ async def check_photo(file: UploadFile = File(...), snap: bool = Form(True),
     small = cv2.resize(res.sheet, (480, 480), interpolation=cv2.INTER_AREA)
     ok, jpg = cv2.imencode(".jpg", small, [cv2.IMWRITE_JPEG_QUALITY, 80])
     sheet = "data:image/jpeg;base64," + base64.b64encode(jpg.tobytes()).decode() if ok else None
-    return _respond(res.pattern, "photo", angle_tol,
+    body = _respond(res.pattern, "photo", angle_tol,
                     {"photo": {**res.stats, "read_ms": round((time.perf_counter() - t0) * 1000),
                                "lines": res.lines, "sheet": sheet}})
+    body["photo"]["assessment"] = assess_photo(body)
+    return body
+
+
+def assess_photo(body: dict) -> dict:
+    """Does what came out of the photo look like a crease pattern at all?
+
+    A random picture still yields a few coloured strokes, and checking those
+    as if they were a pattern produces a page of meaningless failures. These
+    tests catch that and let the page say so plainly instead.
+    """
+    photo, fold = body["photo"], body["pattern"]
+    kinds = fold["edges_assignment"]
+    boundary = {v for (a, b), k in zip(fold["edges_vertices"], kinds) if k == "B" for v in (a, b)}
+    reaching_edge = sum(1 for (a, b), k in zip(fold["edges_vertices"], kinds)
+                        if k in ("M", "V") and (a in boundary or b in boundary))
+    loose = sum(1 for v in body["violations"] if v["rule"] == "loose_end")
+    lines = photo.get("lines", [])
+    found = {"mountain": sum(1 for l in lines if l["kind"] == "M"),
+             "valley": sum(1 for l in lines if l["kind"] == "V")}
+    problems, notes = [], []
+    if reaching_edge == 0:
+        problems.append("None of the lines reach the edge of the paper. In a crease pattern, creases run edge to edge or meet each other.")
+    if loose >= 2 and loose >= 0.5 * max(1, body["checked"]["vertices"]):
+        problems.append(f"{loose} lines just stop in the middle of the paper instead of meeting other lines.")
+    if not photo.get("paper_found"):
+        notes.append("I couldn't find a square sheet of light paper, so I read the whole picture.")
+    return {"looks_like_pattern": not problems, "problems": problems, "notes": notes, "found": found}
 
 
 class FixRequest(BaseModel):

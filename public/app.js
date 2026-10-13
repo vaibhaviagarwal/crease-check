@@ -5,7 +5,7 @@ const $ = (id) => document.getElementById(id);
 const NS = 'http://www.w3.org/2000/svg';
 const PAD = 20, SIDE = 360;            // the sheet inside the 400x400 viewBox
 const NAMES = { kawasaki: 'Kawasaki', maekawa: 'Maekawa', big_little_big: 'Big-little-big',
-  even_degree: 'Odd number of creases', unassigned: 'Unassigned creases', layers: 'Layers collide' };
+  even_degree: 'Odd number of creases', loose_end: 'Loose end', unassigned: 'Unassigned creases', layers: 'Layers collide' };
 
 let current = null;                    // the last API response
 
@@ -61,6 +61,11 @@ function groupByVertex(violations) {
 function render(body, { fromPhoto = false } = {}) {
   current = body;
   $('empty').hidden = true;
+  $('notice').hidden = true;
+  $('sheet').classList.remove('ghosted', 'peeking');
+  $('peek').hidden = !body.photo;
+  $('peek').setAttribute('aria-pressed', 'false');
+  $('peek').textContent = 'Compare with my photo';
   const svg = $('canvas');
   svg.replaceChildren();
   const fold = body.pattern;
@@ -113,7 +118,12 @@ function render(body, { fromPhoto = false } = {}) {
   $('verdict').textContent = verdict;
   const ms = body.photo ? `photo read in ${body.photo.read_ms} ms` : `${Math.max(1, Math.round(body.elapsed_ms))} ms`;
   $('meta').textContent = `${body.checked.vertices} points checked · ${body.checked.creases} creases · ${ms}`;
-  const note = body.flat_foldable ? 'Every point folds flat on its own. See How it works for what that does and does not promise.' : '';
+  let note = body.flat_foldable ? 'Every point folds flat on its own. See How it works for what that does and does not promise.' : '';
+  if (body.photo) {
+    const f = body.photo.assessment.found;
+    const read = `From your photo I read ${f.mountain} mountain (red) and ${f.valley} valley (blue) line${f.mountain + f.valley === 1 ? '' : 's'}.`;
+    note = [read, ...body.photo.assessment.notes, note].filter(Boolean).join(' ');
+  }
   $('note').hidden = !note;
   $('note').textContent = note;
 
@@ -193,6 +203,24 @@ async function uploadFile(file) {
   try { render(await call('/api/check/file', { method: 'POST', body: form })); } catch (e) { showError(e.message); }
 }
 
+function renderNotAPattern(body) {
+  render(body, { fromPhoto: false });
+  // Keep the photo in view with what was detected drawn faintly over it.
+  const img = $('photo');
+  img.hidden = false;
+  img.classList.remove('fade');
+  $('sheet').classList.add('ghosted', 'peeking');
+  $('issues').replaceChildren();
+  $('peek').hidden = true;
+  const a = body.photo.assessment;
+  $('notice-found').textContent = `I found ${a.found.mountain} red and ${a.found.valley} blue line${a.found.mountain + a.found.valley === 1 ? '' : 's'}, but:`;
+  const list = $('notice-problems');
+  list.replaceChildren(...[...a.problems, ...a.notes].map((p) => { const li = document.createElement('li'); li.textContent = p; return li; }));
+  $('notice').hidden = false;
+  $('verdict').textContent = 'Not a crease pattern?';
+  $('note').hidden = true;
+}
+
 async function uploadPhoto(file) {
   const form = new FormData();
   form.append('file', file);
@@ -207,7 +235,8 @@ async function uploadPhoto(file) {
       img.hidden = false;
       await img.decode().catch(() => {});
     }
-    render(body, { fromPhoto: Boolean(body.photo && body.photo.sheet) });
+    if (body.photo.assessment && !body.photo.assessment.looks_like_pattern) renderNotAPattern(body);
+    else render(body, { fromPhoto: Boolean(body.photo && body.photo.sheet) });
   } catch (e) { showError(e.message); }
 }
 
@@ -221,6 +250,19 @@ $('pick-photo').addEventListener('click', () => $('photo-input').click());
 $('pick-file').addEventListener('click', () => $('file-input').click());
 $('photo-input').addEventListener('change', (e) => { if (e.target.files[0]) uploadPhoto(e.target.files[0]); e.target.value = ''; });
 $('file-input').addEventListener('change', (e) => { if (e.target.files[0]) uploadFile(e.target.files[0]); e.target.value = ''; });
+$('show-anyway').addEventListener('click', () => {
+  if (!current) return;
+  render(current);
+  $('photo').hidden = false;
+  $('photo').classList.add('fade');
+});
+$('peek').addEventListener('click', () => {
+  const on = !$('sheet').classList.contains('peeking');
+  $('sheet').classList.toggle('peeking', on);
+  $('photo').hidden = false;
+  $('peek').setAttribute('aria-pressed', String(on));
+  $('peek').textContent = on ? 'Back to the pattern' : 'Compare with my photo';
+});
 $('opt-fixes').addEventListener('change', (e) => $('issues').classList.toggle('hide-fixes', !e.target.checked));
 
 (async function start() {

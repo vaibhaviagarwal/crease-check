@@ -104,10 +104,16 @@ def check(pattern: Pattern, angle_tol: float = 0.01, clean: bool = True,
         sectors, assigns = _sectors_and_assigns(star, p.assignments)
         n = len(star)
 
+        if n == 1:
+            violations.append(Violation(
+                "loose_end", v, pt,
+                "This crease stops in the middle of the paper. Every crease has to end at another crease or at the paper's edge.",
+                {"degree": 1}))
+            continue
         if n % 2:
             violations.append(Violation(
                 "even_degree", v, pt,
-                f"{n} creases meet here. A point that folds flat needs an even number.",
+                f"{n} creases meet here. Where creases meet there has to be an even number of them (4, 6, ...) for the paper to fold flat.",
                 {"degree": n}))
             continue
 

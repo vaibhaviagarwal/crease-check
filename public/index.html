@@ -59,8 +59,18 @@
               <p class="empty-sub" id="empty-sub">Upload a photo or a file, or pick an example.</p>
             </div>
           </div>
+          <div id="notice" class="notice" hidden>
+            <div class="notice-card" role="status">
+              <p class="notice-title">Hmm, that doesn't look like a crease pattern</p>
+              <p class="notice-found" id="notice-found"></p>
+              <ul class="notice-list" id="notice-problems"></ul>
+              <p class="notice-tips">For a photo that works: a square of light paper, mountain folds in <b class="ink-m">red</b> marker, valley folds in <b class="ink-v">blue</b>, lines drawn edge to edge, shot from straight above.</p>
+              <button type="button" class="btn small" id="show-anyway">Check it anyway</button>
+            </div>
+          </div>
           <div id="busy" class="busy" hidden><span></span></div>
         </div>
+        <button type="button" class="peek" id="peek" hidden aria-pressed="false">Compare with my photo</button>
         <figcaption class="legend">
           <span><svg aria-hidden="true" width="34" height="6"><line x1="1" y1="3" x2="33" y2="3" class="ln-m"/></svg>Mountain</span>
           <span><svg aria-hidden="true" width="34" height="6"><line x1="1" y1="3" x2="33" y2="3" class="ln-v"/></svg>Valley</span>

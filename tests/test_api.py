@@ -71,6 +71,27 @@ def test_photo_upload():
     assert len(body["photo"]["lines"]) == 3      # two diagonals and the midline
 
 
+def test_photo_assessment_passes_a_real_pattern():
+    img = render_photo(EXAMPLES["square-twist"][1](), 1001, "easy")
+    a = client.post("/api/photo", files={"file": ("p.jpg", img, "image/jpeg")}).json()["photo"]["assessment"]
+    assert a["looks_like_pattern"] is True and a["problems"] == []
+    assert a["found"]["mountain"] > 0 and a["found"]["valley"] > 0
+
+
+def test_photo_assessment_flags_random_scribbles():
+    import cv2
+    import numpy as np
+    img = np.full((700, 900, 3), (70, 80, 90), np.uint8)
+    cv2.rectangle(img, (150, 80), (750, 640), (228, 236, 242), -1)
+    for x in (330, 420, 560):                                   # short strokes, touching nothing
+        cv2.line(img, (x, 250), (x, 330), (190, 90, 40), 6)
+        cv2.line(img, (x, 430), (x, 510), (190, 90, 40), 6)
+    ok, buf = cv2.imencode(".jpg", img)
+    a = client.post("/api/photo", files={"file": ("p.jpg", buf.tobytes(), "image/jpeg")}).json()["photo"]["assessment"]
+    assert a["looks_like_pattern"] is False
+    assert a["problems"]
+
+
 def test_photo_that_is_not_an_image():
     r = client.post("/api/photo", files={"file": ("photo.jpg", b"nope", "image/jpeg")})
     assert r.status_code == 422

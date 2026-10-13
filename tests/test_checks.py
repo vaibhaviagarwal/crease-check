@@ -59,6 +59,14 @@ def test_odd_degree_is_reported():
     assert [v.rule for v in r.violations] == ["even_degree"]
 
 
+def test_a_crease_that_stops_midway_is_a_loose_end():
+    c = [(0, 0), (1, 0), (1, 1), (0, 1)]
+    segs = [(c[k], c[(k + 1) % 4], "B") for k in range(4)] + [((0, 0.5), (0.5, 0.5), "M")]
+    r = check(Pattern.from_segments(segs))
+    assert [v.rule for v in r.violations] == ["loose_end"]
+    assert "middle of the paper" in r.violations[0].message
+
+
 def test_unassigned_creases_are_flagged_not_guessed():
     p = EXAMPLES["waterbomb"][1]()
     p.assignments = ["U" if a == "M" else a for a in p.assignments]
