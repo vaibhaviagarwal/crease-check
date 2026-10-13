@@ -26,7 +26,8 @@ import time
 from pathlib import Path
 
 from fastapi import FastAPI, File, Form, HTTPException, Query, UploadFile
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
+from starlette.exceptions import HTTPException as StarletteHTTPException
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
@@ -48,6 +49,15 @@ app = FastAPI(
     docs_url="/docs",
     openapi_url="/api/openapi.json",
 )
+
+
+@app.exception_handler(StarletteHTTPException)
+async def _http_error(request, exc):
+    body = {"detail": exc.detail}
+    if exc.status_code == 404 and exc.detail == "Not Found":
+        # Say which path arrived: makes hosting/routing mistakes obvious.
+        body["path"] = request.url.path
+    return JSONResponse(body, status_code=exc.status_code, headers=getattr(exc, "headers", None))
 
 
 def _respond(pattern: Pattern, source: str, angle_tol: float, extra: dict | None = None) -> dict:
