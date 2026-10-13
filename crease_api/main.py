@@ -20,10 +20,10 @@ Interactive docs at /docs.
 from __future__ import annotations
 
 import base64
+import platform
+import sys
 import time
 from pathlib import Path
-
-import cv2
 
 from fastapi import FastAPI, File, Form, HTTPException, Query, UploadFile
 from fastapi.responses import FileResponse
@@ -34,7 +34,6 @@ from crease.checks import Violation, apply_fix, check, describe_fix
 from crease.examples import EXAMPLES
 from crease.io import PatternError, parse, parse_cp, parse_fold, to_fold
 from crease.model import Pattern
-from crease.vision import PhotoError, read_photo
 
 from . import store
 
@@ -82,9 +81,23 @@ async def _read_upload(f: UploadFile) -> bytes:
     return data
 
 
+def _vision():
+    """The photo reader needs OpenCV, the one dependency with native system
+    libraries. Import it only when a photo arrives, so the rest of the API
+    keeps working on a host where it cannot load."""
+    from crease import vision
+    return vision
+
+
 @app.get("/api/health")
 def health() -> dict:
-    return {"ok": True, "database": store.enabled()}
+    try:
+        import cv2
+        photo = f"ok (OpenCV {cv2.__version__})"
+    except Exception as e:      # report it rather than crash
+        photo = f"unavailable: {type(e).__name__}: {e}"
+    return {"ok": True, "database": store.enabled(), "photo_reader": photo,
+            "python": sys.version.split()[0], "platform": platform.platform()}
 
 
 @app.get("/api/examples")
@@ -120,10 +133,15 @@ async def check_file(file: UploadFile = File(...), angle_tol: float = Form(0.01)
 async def check_photo(file: UploadFile = File(...), snap: bool = Form(True),
                       angle_tol: float = Form(1.0)) -> dict:
     data = await _read_upload(file)
+    try:
+        vision = _vision()
+        import cv2
+    except Exception as e:
+        raise HTTPException(503, f"The photo reader is unavailable on this server ({type(e).__name__}).") from None
     t0 = time.perf_counter()
     try:
-        res = read_photo(data, snap=22.5 if snap else None)
-    except PhotoError as e:
+        res = vision.read_photo(data, snap=22.5 if snap else None)
+    except vision.PhotoError as e:
         raise HTTPException(422, str(e)) from None
     small = cv2.resize(res.sheet, (480, 480), interpolation=cv2.INTER_AREA)
     ok, jpg = cv2.imencode(".jpg", small, [cv2.IMWRITE_JPEG_QUALITY, 80])
