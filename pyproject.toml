@@ -2,7 +2,26 @@
 name = "crease-check"
 version = "0.1.0"
 description = "Will your origami crease pattern fold flat? A geometry engine, photo reader and API."
-requires-python = ">=3.11"
+requires-python = ">=3.12"
+# Same as requirements.txt. Hosts that read pyproject.toml (Vercel does)
+# install from here.
+dependencies = [
+    "fastapi==0.143.0",
+    "python-multipart>=0.0.9",
+    "numpy==2.5.3",
+    "opencv-python-headless==5.0.0.93",
+    "psycopg[binary]==3.3.6",
+]
+
+[project.optional-dependencies]
+dev = ["uvicorn[standard]>=0.30", "pytest>=8", "hypothesis>=6.100", "httpx>=0.27"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["crease", "crease_api"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
