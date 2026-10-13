@@ -2,6 +2,8 @@
 
 [![tests](https://github.com/vaibhaviagarwal/crease-check/actions/workflows/tests.yml/badge.svg)](https://github.com/vaibhaviagarwal/crease-check/actions/workflows/tests.yml)
 
+**Live: [crease-check-smoky.vercel.app](https://crease-check-smoky.vercel.app)** · [API docs](https://crease-check-smoky.vercel.app/docs)
+
 Will an origami crease pattern fold flat? Upload a design file, or a phone
 photo of a pattern drawn in marker, and Crease Check finds every point that
 can't fold, says which rule it breaks, and suggests the smallest fix.
@@ -184,7 +186,7 @@ crease/            the engine (no web code)
   vision.py        photo → pattern
   synth.py         synthetic photos for the benchmark
 crease_api/        FastAPI app and PostgreSQL storage
-api/index.py       Vercel entry point
+api/index.py       Vercel entry point (restores the original path after Vercel's rewrite)
 public/            the web page (HTML, CSS, plain JS)
 bench/             photo benchmark
 tests/             pytest suite, including the brute-force oracle
