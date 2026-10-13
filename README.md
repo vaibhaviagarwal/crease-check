@@ -4,9 +4,10 @@
 
 **Live: [crease-check-smoky.vercel.app](https://crease-check-smoky.vercel.app)** · [API docs](https://crease-check-smoky.vercel.app/docs)
 
-Will an origami crease pattern fold flat? Upload a design file, or a phone
-photo of a pattern drawn in marker, and Crease Check finds every point that
-can't fold, says which rule it breaks, and suggests the smallest fix.
+Will an origami crease pattern fold flat? Upload a design file, a phone
+photo of a pattern drawn in marker, or a screenshot from design software,
+and Crease Check finds every point that can't fold, says which rule it
+breaks, and suggests the smallest fix.
 
 ## What it does
 
@@ -19,10 +20,12 @@ can't fold, says which rule it breaks, and suggests the smallest fix.
   vertex fold (avoiding flips that would break the vertex at the crease's
   other end), or the one crease rotation that fixes an angle. The tests
   apply every suggested fix to a broken pattern and confirm it then folds.
-- **Reads photos.** Red marker for mountain folds, blue for valley. Classical
-  computer vision with OpenCV, no neural network. On 180 synthetic photos it
-  had never seen, it found over 99.9% of crease length and gave the same
-  verdict as the original file for 95% of normal-difficulty photos.
+- **Reads photos and screenshots.** Red for mountain folds, blue for valley.
+  Classical computer vision with OpenCV, no neural network. On 180
+  synthetic marker photos it had never seen, it found over 99.9% of crease
+  length and gave the same verdict as the original file for 95% of
+  normal-difficulty photos. Screenshots of grid-based designs are read
+  exactly by detecting the design grid.
 - **Scales.** A 60 × 60 Miura-ori grid (7,080 creases, 3,481 vertices) checks
   in about 0.35 s, because a spatial grid replaces the all-pairs
   line-crossing search.
@@ -56,7 +59,7 @@ file / photo ─► segments ─► planar graph ─► per-vertex rules ─► 
 
 ## Reading a photo
 
-`crease/vision.py`, about 600 lines:
+`crease/vision.py`, about 900 lines:
 
 | Step | Method |
 |---|---|
@@ -69,6 +72,11 @@ file / photo ─► segments ─► planar graph ─► per-vertex rules ─► 
 | Snap (optional) | Angles within 5° of a multiple of 22.5° snap to it |
 | Make creases meet | Ends move to junctions within reach, and dangling ends extend forward to the next line |
 | Solve junctions | Union-find clusters crossings, then rounds of least-squares vertex placement and sideways line shifts make the drawing consistent |
+
+Before any of that is shown, a sanity check asks whether the result looks
+like a crease pattern at all (lines reaching the paper's edge, few loose
+ends). If it doesn't, the page says so and explains how to take a photo
+that works, rather than reporting dozens of meaningless failures.
 
 ### Screenshots and exports from design software
 
@@ -108,7 +116,7 @@ below 1000; these numbers use seeds from 1000 up, which tuning never saw.
 | Normal | 60 | >99.9% | >99.9% | >99.9% | 95.0% | 95.0% |
 | Hard | 60 | >99.9% | 99.8% | >99.9% | 88.3% | 86.7% |
 
-About 0.2 s per photo. Recall is nearly perfect, so the remaining errors
+About 0.3 s per photo. Recall is nearly perfect, so the remaining errors
 are almost all in how lines meet: one junction split in two flips the
 verdict. Dense patterns (Miura-ori, 60 creases) cause most of them.
 
@@ -121,7 +129,7 @@ verdict. Dense patterns (Miura-ori, 60 creases) cause most of them.
 - **Synthetic photos are not real photos.** Real marker, paper and lighting
   will differ; a set of real photos is the next test.
 - **Very short creases** (under about 4.5% of the paper's width) are treated
-  as noise.
+  as noise in marker photos.
 
 ## API
 
@@ -133,7 +141,7 @@ FastAPI, with interactive docs at `/docs`.
 | GET | `/api/examples/{id}` | One of them, checked |
 | POST | `/api/check` | JSON: a FOLD object, or `{"cp": "..."}` |
 | POST | `/api/check/file` | Upload `.fold` or `.cp` |
-| POST | `/api/photo` | Upload a photo |
+| POST | `/api/photo` | Upload a photo or screenshot |
 | POST | `/api/fix` | Apply one suggested fix, re-check |
 | GET | `/api/checks/recent` | Latest saved checks |
 | GET | `/api/stats` | Which rules fail most, across all checks |
@@ -161,8 +169,8 @@ With `DATABASE_URL` set, every check is saved to PostgreSQL
 
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
-pip install -r requirements-dev.txt
-uvicorn crease_api.main:app --reload       # http://localhost:8000
+python -m pip install -r requirements-dev.txt
+python -m uvicorn crease_api.main:app --reload       # http://localhost:8000
 ```
 
 `samples/` has three synthetic photos to try the photo upload with.
@@ -176,7 +184,7 @@ docker compose up --build
 ## Tests
 
 ```bash
-python -m pytest                       # 226 tests, ~15 s
+python -m pytest                       # 233 tests, ~45 s
 python bench/vision_benchmark.py       # full photo benchmark, ~90 s
 ```
 
@@ -188,7 +196,9 @@ python bench/vision_benchmark.py       # full photo benchmark, ~90 s
   the spatial grid against brute force on random line sets.
 - **Patterns and fixes**: the built-in bases fold; the broken demo has
   exactly its two planted mistakes; applying the suggested fixes repairs it.
-- **Photos**: thinning, corner order, bad input, whole synthetic photos.
+- **Photos and screenshots**: thinning, corner order, bad input, whole
+  synthetic photos, screenshot-style images read exactly through grid
+  detection, and the not-a-pattern check.
 - **API**: every endpoint, error responses, the fix round trip, and saving
   to a real PostgreSQL database (in CI, a Postgres 16 service container).
 
@@ -207,8 +217,8 @@ crease/            the engine (no web code)
   vertex.py        single-vertex rules, crimp test, fix search
   checks.py        whole-pattern report, fixes, apply_fix
   examples.py      built-in bases and the random vertex generator
-  vision.py        photo → pattern
-  synth.py         synthetic photos for the benchmark
+  vision.py        photo or screenshot → pattern
+  synth.py         synthetic photos and screenshots for the tests and benchmark
 crease_api/        FastAPI app and PostgreSQL storage
 api/index.py       Vercel entry point (restores the original path after Vercel's rewrite)
 public/            the web page (HTML, CSS, plain JS)
