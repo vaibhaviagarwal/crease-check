@@ -48,6 +48,17 @@
         <div class="sheet" id="sheet">
           <img id="photo" class="photo" alt="Your photo, straightened" hidden>
           <svg id="canvas" viewBox="0 0 400 400" role="img" aria-label="Crease pattern"></svg>
+          <div id="empty" class="empty">
+            <svg viewBox="0 0 400 400" aria-hidden="true">
+              <rect class="paper" x="20" y="20" width="360" height="360"/>
+              <line class="ghost-axis" x1="260" y1="20" x2="380" y2="140"/>
+              <polygon class="flap" points="260,20 380,20 380,140"/>
+            </svg>
+            <div class="empty-text">
+              <p class="empty-title">waiting for a fold</p>
+              <p class="empty-sub" id="empty-sub">Upload a photo or a file, or pick an example.</p>
+            </div>
+          </div>
           <div id="busy" class="busy" hidden><span></span></div>
         </div>
         <figcaption class="legend">

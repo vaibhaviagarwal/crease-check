@@ -13,7 +13,7 @@ import os
 from pathlib import Path
 
 log = logging.getLogger("crease.store")
-SCHEMA = (Path(__file__).resolve().parents[1] / "sql" / "schema.sql").read_text()
+SCHEMA_FILE = Path(__file__).resolve().parents[1] / "sql" / "schema.sql"
 _ready = False
 
 
@@ -29,7 +29,9 @@ def _connect():
 def _ensure(conn) -> None:
     global _ready
     if not _ready:
-        conn.execute(SCHEMA)
+        # Read only when a database is actually used, so a missing file can
+        # never take down the rest of the API.
+        conn.execute(SCHEMA_FILE.read_text())
         _ready = True
 
 

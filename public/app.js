@@ -60,6 +60,7 @@ function groupByVertex(violations) {
 
 function render(body, { fromPhoto = false } = {}) {
   current = body;
+  $('empty').hidden = true;
   const svg = $('canvas');
   svg.replaceChildren();
   const fold = body.pattern;
@@ -236,8 +237,10 @@ $('opt-fixes').addEventListener('change', (e) => $('issues').classList.toggle('h
       b.addEventListener('click', () => loadExample(ex.id));
       box.appendChild(b);
     }
-    loadExample(examples[0].id);
+    // No example loads by itself: the sheet waits, folding a corner, until you pick one.
   } catch (e) {
-    showError('Could not reach the checker. Is the server running?');
+    const msg = "Can't reach the checker right now. Try refreshing in a moment.";
+    showError(msg);
+    $('empty-sub').textContent = msg;
   }
 })();
